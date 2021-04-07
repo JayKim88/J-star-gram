@@ -4,9 +4,9 @@ import styled from "styled-components";
 const Title = () => {
   return (
     <div className="title">
-      <h1>FireGram</h1>
-      <h2>Your Pictures</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <h1>JStargram</h1>
+      <h2>Share your pictures</h2>
+      <p>share, share and enjoy</p>
     </div>
   );
 };

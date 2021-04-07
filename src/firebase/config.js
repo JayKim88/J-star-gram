@@ -15,7 +15,7 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 // firebase.analytics();
 
-const projectStorage = firebase.storage();
+const projectStorage = firebase.storage(); //This reference points to the root of Cloud Storage bucket.
 const projectFirestore = firebase.firestore();
 const timeStamp = firebase.firestore.FieldValue.serverTimestamp;
 
