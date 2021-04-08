@@ -9,10 +9,12 @@ const useFiretore = (collection) => {
       .collection(collection) //collection will be 'images'
       .orderBy("createdAt", "desc")
       .onSnapshot((snap) => {
-        //snapshot including all of documents in collection of database when there is change in collection.
+        //snapshot including all of documents in collection of
+        //database when there is change in collection.
         let documents = [];
         snap.forEach((doc) => {
-          documents.push({ ...doc.data(), id: doc.id }); //doc.data(): all data of a document
+          documents.push({ ...doc.data(), id: doc.id });
+          //doc.data(): all data of a document
         });
         setDocs(documents);
       });

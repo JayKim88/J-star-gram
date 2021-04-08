@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
 const Modal = ({ selectedImg, setSelectedImg }) => {
   const handleClick = (e) => {
@@ -10,13 +11,24 @@ const Modal = ({ selectedImg, setSelectedImg }) => {
   };
 
   return (
-    <Backdrop className="backdrop" onClick={handleClick}>
-      <MainImg src={selectedImg} alt="enlarged img"></MainImg>
+    <Backdrop
+      className="backdrop"
+      onClick={handleClick}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      // transition={{ duration: 1 }}
+    >
+      <MainImg
+        src={selectedImg}
+        alt="enlarged img"
+        initial={{ y: "-100vh" }}
+        animate={{ y: 0 }}
+      ></MainImg>
     </Backdrop>
   );
 };
 
-const Backdrop = styled.div`
+const Backdrop = styled(motion.div)`
   /* border: 3px solid yellow; */
   position: fixed;
   top: 0;
@@ -25,7 +37,7 @@ const Backdrop = styled.div`
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
 `;
-const MainImg = styled.img`
+const MainImg = styled(motion.img)`
   display: block;
   width: 40%;
   /* max-width: 60%;
