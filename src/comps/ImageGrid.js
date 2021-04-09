@@ -14,7 +14,7 @@ const ImageGrid = ({ setSelectedImg }) => {
             layout
             className="img-wrap"
             key={doc.id}
-            onClick={() => setSelectedImg(doc.url)}
+            onClick={() => setSelectedImg(doc)}
           >
             <Image
               src={doc.url}
@@ -22,7 +22,7 @@ const ImageGrid = ({ setSelectedImg }) => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1 }}
-            ></Image>
+            />
           </ImageWrap>
         ))}
     </ImageBox>
@@ -35,6 +35,14 @@ const ImageBox = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 40px;
+  @media only screen and (max-width: 1000px) {
+    grid-template-columns: 1fr 1fr;
+    /* transition: grid-template-columns 0.2s ease-in; */
+  }
+  @media only screen and (max-width: 500px) {
+    grid-template-columns: 1fr;
+    /* transition: grid-template-columns 0.2s ease-in; */
+  }
 `;
 const ImageWrap = styled(motion.div)`
   /* border: 3px solid blue; */

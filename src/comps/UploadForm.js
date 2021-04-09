@@ -3,26 +3,33 @@ import React, { useState } from "react";
 import ProgressBar from "./ProgressBar";
 import styled from "styled-components";
 
-const UploadForm = () => {
+const UploadForm = ({ user }) => {
   const [file, setFile] = useState(null);
   const [error, setError] = useState(null);
 
   const type = ["image/jpeg", "image/png"];
 
   const handleImage = (e) => {
-    const image = e.target.files[0];
+    let image = e.target.files[0];
     // console.log(image);
-    if (image && type.includes(image.type)) {
+    if (user && image && type.includes(image.type)) {
       setFile(image);
       setError(null);
-      // console.log(image);
     } else {
+      if (user === null) {
+        // console.log("no login!");
+        setError("Please Login:)");
+      } else {
+        // console.log("wrong picture@@");
+        setError("Please select an image file( jpeg or png )");
+      }
+      console.log("hello??");
       setFile(null);
-      setError("Please select an image file( jpeg or png )");
       setTimeout(() => {
-        const errMsg = document.getElementById("error");
-        errMsg.style.visibility = "hidden";
-        errMsg.style.opacity = 0;
+        // const errMsg = document.getElementById("error");
+        // errMsg.style.visibility = "hidden";
+        // errMsg.style.opacity = 0;
+        setError(null);
       }, 2000);
     }
   };
@@ -69,6 +76,9 @@ const Output = styled.div`
     display: block;
     visibility: 1;
     transition: all 2s;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ff6e30;
   }
 `;
 
