@@ -60,6 +60,8 @@ const MainImg = styled(motion.img)`
   }
   @media only screen and (max-width: 700px) {
     margin: 0;
+    width: 18rem;
+    height: 17rem;
   }
 `;
 

@@ -18,12 +18,11 @@ const UploadForm = ({ user }) => {
     } else {
       if (user === null) {
         // console.log("no login!");
-        setError("Please Login:)");
+        setError("Please Login : )");
       } else {
         // console.log("wrong picture@@");
         setError("Please select an image file( jpeg or png )");
       }
-      console.log("hello??");
       setFile(null);
       setTimeout(() => {
         // const errMsg = document.getElementById("error");

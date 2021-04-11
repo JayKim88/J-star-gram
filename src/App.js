@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 import firebase from "firebase/app";
 // import "firebase/firestore"; //database
 import { projectAuth } from "./firebase/config";
+import googlelogo from "./googlelogo.png";
 
 function App() {
   const [selectedImg, setSelectedImg] = useState(null);
@@ -96,7 +97,9 @@ function App() {
             <div className="logIn">
               Join chats <br></br>By logging in : )
             </div>
-            <SignIn onClick={signInWithGoogle}>In</SignIn>
+            <SignIn onClick={signInWithGoogle}>
+              <img src={googlelogo} alt="googlelogo" />
+            </SignIn>
           </>
         )}
       </SignWrap>
@@ -169,18 +172,23 @@ const SignIn = styled.button`
   border: none;
   border-radius: 1.3rem;
   width: 2.5rem;
+  height: 2.5rem;
   outline: none;
-  background-color: black;
+  background-color: white;
   color: white;
   cursor: pointer;
   margin-left: 1rem;
-  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.5);
-  :hover {
-    color: black;
-    background-color: white;
-    border: none;
-    transition: all 1s ease-in-out;
+  :active {
+    transform: translateY(2px);
+    box-shadow: none;
+  }
+  img {
+    /* border: 3px solid red; */
+    width: 120%;
   }
 `;
 const SignOut = styled.button`
@@ -198,12 +206,13 @@ const SignOut = styled.button`
   cursor: pointer;
   /* padding: 10px; */
   margin-left: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.5);
-  :hover {
-    color: white;
-    background-color: black;
-    border: none;
-    transition: all 1s ease-in-out;
+  :active {
+    transform: translateY(2px);
+    box-shadow: none;
   }
 `;
 

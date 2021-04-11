@@ -70,7 +70,7 @@ const Chatroom = ({ user = null, selectedImgId = null }) => {
         {messages.map((message) => (
           <li id="libox" key={message.id}>
             <Message
-              user={user}
+              user={message}
               text={message.text}
               createdAt={message.createdAt}
             />
@@ -86,7 +86,7 @@ const Chatroom = ({ user = null, selectedImgId = null }) => {
           placeholder="Type your message"
         />
         <Button type="submit" disabled={!newMessage} invisible={!newMessage}>
-          ⬆
+          ⇧
         </Button>
       </SubmitBox>
     </Main>
@@ -108,7 +108,8 @@ const Main = styled(motion.div)`
   }
   @media only screen and (max-width: 700px) {
     margin: 0;
-    width: 20.4rem;
+    width: 18.4rem;
+    height: 18rem;
   }
 `;
 const Header = styled.div`
