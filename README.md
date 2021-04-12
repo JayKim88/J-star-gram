@@ -8,7 +8,7 @@ This service is for people who loves sharing ideas and memories about picture
 - Picture Gallery 
 - Chat Room  
 
-Uploading picture and using chat function is available for logged Users
+Uploading picture and using chat function is available for logged Users  
 Every pictures have their own chat room for people to share opinion
 
 ## Technologies 
