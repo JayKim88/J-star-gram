@@ -40,26 +40,28 @@ const Backdrop = styled(motion.div)`
   background: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
-  @media only screen and (max-width: 700px) {
+  @media only screen and (max-width: 1100px) {
     flex-direction: column;
     align-items: center;
+    justify-content: center;
   }
 `;
 const MainImg = styled(motion.img)`
   display: block;
-  width: 35rem;
+  width: 45rem;
+  height: 32rem;
   /* max-width: 60%;
   max-height: 100%; */
   margin: 10rem 0 10rem 0;
   box-shadow: 3px 5px 7px rgba(0, 0, 0, 0.5);
   border: 3px solid white;
-  @media only screen and (max-width: 1000px) {
-    width: 20rem;
+  @media only screen and (max-width: 1100px) {
+    margin: 0;
+    width: 25rem;
     height: 20rem;
     /* transition: grid-template-columns 0.2s ease-in; */
   }
-  @media only screen and (max-width: 700px) {
-    margin: 0;
+  @media only screen and (max-width: 500px) {
     width: 18rem;
     height: 17rem;
   }

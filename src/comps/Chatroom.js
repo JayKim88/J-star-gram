@@ -96,18 +96,19 @@ const Chatroom = ({ user = null, selectedImgId = null }) => {
 const Main = styled(motion.div)`
   /* border: 3px solid red; */
   width: 20rem;
+  height: 32.4rem;
   margin: 10rem 0 10rem 0rem;
   background: white;
   box-shadow: 3px 5px 7px rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;
-  @media only screen and (max-width: 1000px) {
-    width: 20rem;
+  @media only screen and (max-width: 1100px) {
+    width: 25.4rem;
     height: 20.4rem;
+    margin: 0;
     /* transition: grid-template-columns 0.2s ease-in; */
   }
-  @media only screen and (max-width: 700px) {
-    margin: 0;
+  @media only screen and (max-width: 500px) {
     width: 18.4rem;
     height: 18rem;
   }

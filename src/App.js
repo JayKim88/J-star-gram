@@ -154,7 +154,7 @@ const SignWrap = styled.div`
   /* width: 100%; */
   position: absolute;
   top: 1.5rem;
-  right: 10px;
+  right: 15px;
   display: flex;
   justify-content: flex-end;
   .logIn {
