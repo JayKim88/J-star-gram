@@ -11,6 +11,8 @@ const Modal = ({ selectedImg, setSelectedImg, user }) => {
     }
   };
 
+  // console.log(selectedImg)
+
   return (
     <Backdrop
       className="backdrop"

@@ -15,6 +15,7 @@ const Title = () => {
 
 const Main = styled.div`
   /* border: 3px solid red; */
+  /* position:fixed; */
   display: flex;
   flex-direction: column;
   h2 {
@@ -24,6 +25,7 @@ const Main = styled.div`
 `;
 const Header = styled.div`
   /* border: 3px solid red; */
+  /* position:fixed; */
   display: flex;
   @media only screen and (max-width: 500px) {
     height: 4rem;

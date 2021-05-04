@@ -5,7 +5,7 @@ import {
   timeStamp,
 } from "../firebase/config";
 
-const useStorage = (file) => {
+const useStorage = (file, user) => {
   const [progress, setProgress] = useState(0);
   const [error, setError] = useState(null);
   const [url, setUrl] = useState(null);
@@ -29,11 +29,12 @@ const useStorage = (file) => {
       async () => {
         const url = await storageRef.getDownloadURL();
         const createdAt = timeStamp();
-        collectionRef.add({ url, createdAt });
+        collectionRef.add({ user, url, createdAt });
         setUrl(url);
+        //user email을 넣으면 되겠다!
       }
     );
-  }, [file]);
+  }, [file, user]);
   //useEffect callback will be fired if file dependency is changed
   return { progress, url, error };
 };

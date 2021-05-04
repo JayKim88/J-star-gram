@@ -35,6 +35,8 @@ function App() {
     }
   };
 
+  // console.log(user)
+
   useEffect(() => {
     //this detects the change on state of user login
     const unsubscribe = auth.onAuthStateChanged((user) => {

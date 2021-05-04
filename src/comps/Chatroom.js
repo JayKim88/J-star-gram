@@ -28,6 +28,7 @@ const Chatroom = ({ user = null, selectedImgId = null }) => {
             .filter((ele) => {
               return ele.imgId === selectedImgId; //extract messages for the selectedImg
             });
+            console.log(data)
           if (data.length <= 10) {
             setMessages(data);
           } else {
