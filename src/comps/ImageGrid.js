@@ -1,15 +1,27 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import useFiretore from "../hooks/useFirestore";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
-const ImageGrid = ({ setSelectedImg }) => {
+const ImageGrid = ({ setSelectedImg, userName}) => {
   const { docs } = useFiretore("images");
-  // console.log(docs);
+  const [ renderPhotos, setRenderPhotos ] = useState([]);
+
+  useEffect(()=>{
+    if(userName !== undefined && userName.length !== 0){
+      const userPhotos = docs.filter((doc) => {
+        return doc.user === userName
+      })
+      setRenderPhotos(userPhotos)
+    } else {
+      setRenderPhotos(docs)
+    }
+  },[docs, userName])
+
   return (
     <ImageBox>
-      {docs &&
-        docs.map((doc) => (
+      {renderPhotos &&
+        renderPhotos.map((doc) => (
           <ImageWrap
             layout
             className="img-wrap"

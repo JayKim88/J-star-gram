@@ -14,6 +14,7 @@ function App() {
   const auth = projectAuth;
   const [user, setUser] = useState(() => auth.currentUser);
   const [initializing, setInitializing] = useState(true);
+  const [userName, setUserName] = useState("");
 
   const signInWithGoogle = async () => {
     //Retrieve Google provider object
@@ -30,12 +31,11 @@ function App() {
   const signOut = async () => {
     try {
       await firebase.auth().signOut();
+      setUserName("")
     } catch (error) {
       console.log(error.message);
     }
   };
-
-  // console.log(user)
 
   useEffect(() => {
     //this detects the change on state of user login
@@ -89,9 +89,7 @@ function App() {
       <SignWrap>
         {user ? (
           <>
-            <div className="logIn">
-              Welcome Here <br></br>Join the chat : )
-            </div>
+              <Myphoto onClick={() => setUserName(user)}>My</Myphoto>
             <SignOut onClick={signOut}>Out</SignOut>
           </>
         ) : (
@@ -108,9 +106,9 @@ function App() {
       <ScrollTopBtn id="topBtn" onClick={topFunction}>
         Top
       </ScrollTopBtn>
-      <Title />
+      <Title setUserName={setUserName} />
       <UploadForm user={user} />
-      <ImageGrid setSelectedImg={setSelectedImg} />
+      <ImageGrid setSelectedImg={setSelectedImg} userName={userName.displayName}/>
       {selectedImg && (
         <>
           <Modal
@@ -217,5 +215,30 @@ const SignOut = styled.button`
     box-shadow: none;
   }
 `;
+
+const Myphoto = styled.div`
+  border: 3px solid green;
+  /* z-index: 99; */
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 2rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  outline: none;
+  background-color: white;
+  color: black;
+  cursor: pointer;
+  /* padding: 10px; */
+  margin-left: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.5);
+  :active {
+    transform: translateY(2px);
+    box-shadow: none;
+  }
+`
 
 export default App;

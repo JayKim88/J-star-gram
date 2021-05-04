@@ -11,8 +11,6 @@ const Modal = ({ selectedImg, setSelectedImg, user }) => {
     }
   };
 
-  // console.log(selectedImg)
-
   return (
     <Backdrop
       className="backdrop"
@@ -27,7 +25,7 @@ const Modal = ({ selectedImg, setSelectedImg, user }) => {
         initial={{ y: "-100vh" }}
         animate={{ y: 0 }}
       />
-      {user ? <Chatroom user={user} selectedImgId={selectedImg.id} /> : null}
+      {user ? <Chatroom user={user} imgId={selectedImg.id} imgUser={selectedImg.user} imgCreatedAt={selectedImg.createdAt}/> : null}
     </Backdrop>
   );
 };

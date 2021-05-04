@@ -9,6 +9,7 @@ const useStorage = (file, user) => {
   const [progress, setProgress] = useState(0);
   const [error, setError] = useState(null);
   const [url, setUrl] = useState(null);
+  // console.log(user)
 
   useEffect(() => {
     //references : if images is uploaded in default storage, file.name should be used as a name
@@ -29,9 +30,9 @@ const useStorage = (file, user) => {
       async () => {
         const url = await storageRef.getDownloadURL();
         const createdAt = timeStamp();
-        collectionRef.add({ user, url, createdAt });
+
+        collectionRef.add({ user: user.displayName, url, createdAt });
         setUrl(url);
-        //user email을 넣으면 되겠다!
       }
     );
   }, [file, user]);

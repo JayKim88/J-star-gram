@@ -27,7 +27,7 @@ const ProgressBar = ({ user, file, setFile }) => {
 
 const Progress = styled(motion.div)`
   width: ${(props) => props.percentage + "%"};
-  background: black;
+  background: #ff8000;
   color: transparent;
 `;
 
