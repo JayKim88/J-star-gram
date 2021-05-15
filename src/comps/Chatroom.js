@@ -111,7 +111,7 @@ const Chatroom = ({ user = null, imgId= null, imgUser = null, imgCreatedAt = nul
 const Main = styled(motion.div)`
   /* border: 3px solid red; */
   width: 20rem;
-  height: 32.4rem;
+  height: 32.35rem;
   margin: 10rem 0 10rem 0rem;
   background: white;
   box-shadow: 3px 5px 7px rgba(0, 0, 0, 0.5);
@@ -135,13 +135,12 @@ const Header = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* box-shadow: 0px 5px 7px rgba(0, 0, 0, 0.2); */
+  box-shadow: 0px 5px 7px rgba(0, 0, 0, 0.2);
   font-size: 0.8rem;
   padding: 0 0.5rem;
-  /* font-weight: bold; */
-  /* div {
-    border: 1px solid red;
-  } */
+  @media only screen and (max-width: 1100px) {
+    width: 96%;
+  }
 `;
 
 const Ulbox = styled.ul`

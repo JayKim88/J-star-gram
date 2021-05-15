@@ -1,12 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 
-const Title = ({setUserName}) => {
+const Title = () => {
 
   return (
     <Main className="title">
       <Header>
-        <Logo onClick={()=>setUserName("")}>JStargram</Logo>
+        <Logo>JStargram</Logo>
       </Header>
       <h2>Share your pictures</h2>
       <p>Share, Talk and Enjoy together 😃</p>
@@ -39,7 +39,6 @@ const Logo = styled.h1`
   text-align: left;
   font-size: 1.5rem;
   color: #ff8000;
-  cursor: pointer;
   @media only screen and (max-width: 500px) {
     position: absolute;
     left: 1rem;

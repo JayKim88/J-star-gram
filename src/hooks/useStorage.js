@@ -29,6 +29,7 @@ const useStorage = (file, user) => {
       },
       async () => {
         const url = await storageRef.getDownloadURL();
+        console.log(url)
         const createdAt = timeStamp();
 
         collectionRef.add({ user: user.displayName, url, createdAt });

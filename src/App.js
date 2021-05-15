@@ -15,6 +15,7 @@ function App() {
   const [user, setUser] = useState(() => auth.currentUser);
   const [initializing, setInitializing] = useState(true);
   const [userName, setUserName] = useState("");
+  const [myAlbum, setMyAlbum] = useState(false);
 
   const signInWithGoogle = async () => {
     //Retrieve Google provider object
@@ -31,11 +32,22 @@ function App() {
   const signOut = async () => {
     try {
       await firebase.auth().signOut();
-      setUserName("")
+      setMyAlbum(false);
+      setUserName("");
     } catch (error) {
       console.log(error.message);
     }
   };
+
+  const handleAlbum = () => {
+    if(myAlbum === false) {
+      setUserName(user);
+      setMyAlbum(true);
+    } else {
+      setUserName("");
+      setMyAlbum(false)
+    }
+  }
 
   useEffect(() => {
     //this detects the change on state of user login
@@ -89,8 +101,8 @@ function App() {
       <SignWrap>
         {user ? (
           <>
-              <Myphoto onClick={() => setUserName(user)}>My</Myphoto>
-            <SignOut onClick={signOut}>Out</SignOut>
+            <Myphoto onClick={handleAlbum}>{myAlbum ? 'Whole Album' : 'My Album'}</Myphoto>
+            <SignOut onClick={signOut}>Log Out</SignOut>
           </>
         ) : (
           <>
@@ -106,7 +118,7 @@ function App() {
       <ScrollTopBtn id="topBtn" onClick={topFunction}>
         Top
       </ScrollTopBtn>
-      <Title setUserName={setUserName} />
+      <Title />
       <UploadForm user={user} />
       <ImageGrid setSelectedImg={setSelectedImg} userName={userName.displayName}/>
       {selectedImg && (
@@ -194,7 +206,7 @@ const SignIn = styled.button`
 const SignOut = styled.button`
   border: 3px solid green;
   /* z-index: 99; */
-  font-size: 1rem;
+  font-size: 0.7rem;
   font-weight: bold;
   border: none;
   border-radius: 2rem;
@@ -216,10 +228,10 @@ const SignOut = styled.button`
   }
 `;
 
-const Myphoto = styled.div`
+const Myphoto = styled.button`
   border: 3px solid green;
   /* z-index: 99; */
-  font-size: 1rem;
+  font-size: 0.65rem;
   font-weight: bold;
   border: none;
   border-radius: 2rem;
