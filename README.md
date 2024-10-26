@@ -1,4 +1,4 @@
-# J-star-gram
+# JStargram
 Picture-share web service using React and Firebase
 
 ## Introduction 
